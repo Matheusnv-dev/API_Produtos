@@ -13,14 +13,15 @@ import com.apiproduto.api.models.ProdutoRepository;
 
 
 
-@Controller("/")
+@Controller("/") //RestControler é utilizado para RESTAPI
 public class ProdutoControler {
     @Autowired 
     private ProdutoRepository repository;
 
-     @GetMapping("/listagem") // muda a url
+     @GetMapping("/") // muda a url
     public String listarProdutos(Model model){
-     model.addAttribute("todosOsProdutos", repository.findAll());
+     model.addAttribute("todosOsProdutos", repository.findAll()); // Find.all encontra os produtos que estao sendo exibidos no "Listar"
+     
         return "listar";
     }
     @GetMapping("/Cadastro") 
@@ -28,7 +29,7 @@ public class ProdutoControler {
         model.addAttribute("produto", new Produto());
         return "Cadastrar";
     }
-    @PostMapping("/Cadastro")
+    @PostMapping("/Cadastro")  //Ocorre quando o usuario clica no botão enviar 
 
     public String cadastrarProdutos(Produto produto){
        repository.save(produto);

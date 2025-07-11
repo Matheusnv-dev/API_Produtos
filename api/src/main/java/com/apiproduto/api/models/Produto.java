@@ -23,11 +23,11 @@ public class Produto {
 
     private Long id; 
     private String nome;
-    private Double valor;
+    private Double preco;
 
     public Produto(String nome, Double valor) {
         this.nome = nome;
-        this.valor = valor;
+        this.preco = preco;
     }
 
     
